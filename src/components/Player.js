@@ -31,15 +31,26 @@ const Player = ({ curentSong, setIsPlaying, isPlaying }) => {
   };
 
   const [songinfo, setSongInfo] = useState({
-    curentTime: null,
-    endTime: null,
+    curentTime: 0,
+    endTime: 0,
   });
+
+  const dragHandler = (e) => {
+    setSongInfo({ ...songinfo, curentTime: e.target.value });
+    audioRef.current.curentTime = e.target.value;
+  };
 
   return (
     <div className="palyer-container">
       <div className="time-control">
         <p>{timeFormated(songinfo.curentTime)}</p>
-        <input type="range" />
+        <input
+          type="range"
+          min={0}
+          max={songinfo.duration}
+          value={songinfo.curentTime}
+          onChange={dragHandler}
+        />
         <p>{timeFormated(songinfo.endTime)}</p>
       </div>
       <div className="paly-control">
