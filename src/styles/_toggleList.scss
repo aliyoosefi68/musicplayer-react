@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+#button-toggle {
+  font-family: "Fugaz One", cursive;
+
+  margin-right: 5px;
+}
+
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h1 {
+    font-family: "Fugaz One", cursive;
+    color: rgb(133, 62, 62);
+  }
+  button {
+    background: transparent;
+    border: 2px solid rgb(133, 62, 62);
+    cursor: pointer;
+    padding: 0.75rem;
+    transition: all 0.2s ease;
+    border-radius: 40px;
+    color: rgb(133, 62, 62);
+    &:hover {
+      background: rgb(133, 62, 62);
+      color: #fff;
+      border: 2px solid rgb(240, 240, 240);
+    }
+  }
+}

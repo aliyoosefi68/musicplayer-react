@@ -10,6 +10,7 @@
   background: rgb(225, 225, 225);
   box-shadow: 2px 2px 10px rgb(204, 204, 204);
   overflow-y: scroll;
+  transition: all 0.3s ease;
 
   h2 {
     padding: 1vw;
@@ -68,4 +69,9 @@
 }
 .selected {
   background-color: rgb(133, 62, 62);
+  color: #fff;
+}
+.displayList {
+  transform: translateX(-30vw);
+  transition: all 0.3s ease;
 }
