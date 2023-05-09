@@ -10,7 +10,7 @@ const musicData = () => {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=55310",
       color: ["#e8c0da", "#6491cc"],
       id: uuidv4(),
-      active: false,
+      active: true,
     },
     {
       name: "chillhop beat tapes: J.Folk",
@@ -27,7 +27,7 @@ const musicData = () => {
       cover:
         "https://chillhop.com/wp-content/uploads/2022/06/312458b974ab45c795d75ec3f0259caa3989103a-1024x1024.jpg",
       artist: "Knowmadic",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=41656",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9248",
       color: ["#EE9494", "#FFF3D3"],
       id: uuidv4(),
       active: false,
@@ -37,7 +37,7 @@ const musicData = () => {
       cover:
         "https://chillhop.com/wp-content/uploads/2022/04/73f23095038f6f023083520706f3e5345f5dd682-1024x1024.jpg",
       artist: "Chillhop Music",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=32860",
+      audio: "https://mp3.chillhop.com/serve.php/?mp3=9248",
       color: ["#63B4DB", "#F9F4B0"],
       id: uuidv4(),
       active: false,
