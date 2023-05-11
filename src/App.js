@@ -15,7 +15,7 @@ function App() {
   const [displayListSong, setDisplayListSong] = useState(true);
 
   return (
-    <div className="App">
+    <div className={`App ${!displayListSong ? "activeList" : ""}`}>
       <ToggleList
         displayListSong={displayListSong}
         setDisplayListSong={setDisplayListSong}

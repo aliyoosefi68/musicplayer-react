@@ -34,16 +34,19 @@ const Player = ({
         };
       }
     });
+
     setSongs(newSongs);
   }, [curentSong]);
+
   const audioRef = useRef(null);
+
   const playsong = () => {
     if (!isPlaying) {
       audioRef.current.play();
-      setIsPlaying(true);
-    } else {
+      setIsPlaying(!isPlaying);
+    } else if (isPlaying) {
       audioRef.current.pause();
-      setIsPlaying(false);
+      setIsPlaying(!isPlaying);
     }
   };
   const [songinfo, setSongInfo] = useState({
@@ -55,6 +58,10 @@ const Player = ({
   const timeUpdateHandler = (e) => {
     const curent = e.target.currentTime;
     const duration = e.target.duration;
+
+    if (curent === duration) {
+      skipSongs("next");
+    }
 
     //calculate Percentage
     const roundCurrent = Math.round(curent);
@@ -79,16 +86,20 @@ const Player = ({
     const currentIndex = songs.findIndex((song) => song.id === curentSong.id);
     if (dir === "next") {
       if (currentIndex === songs.length - 1) {
+        setIsPlaying(false);
         setCurentSong(songs[0]);
       } else {
         setCurentSong(songs[currentIndex + 1]);
+        setIsPlaying(false);
       }
     }
     if (dir === "back") {
       if (currentIndex === 0) {
         setCurentSong(songs[songs.length - 1]);
+        setIsPlaying(false);
       } else {
         setCurentSong(songs[currentIndex - 1]);
+        setIsPlaying(false);
       }
     }
   };
@@ -105,7 +116,7 @@ const Player = ({
         <div
           className="track"
           style={{
-            background: `linear-gradient(to right , ${curentSong.color[0]},${curentSong.color[1]}) `,
+            background: `linear-gradient(to right,${curentSong.color[0]},${curentSong.color[1]}) `,
           }}
         >
           <input
@@ -127,9 +138,11 @@ const Player = ({
           size="2x"
           onClick={() => skipSongs("back")}
         />
-        {isPlaying ? (
+        {isPlaying && (
           <FontAwesomeIcon icon={faPause} size="2x" onClick={playsong} />
-        ) : (
+        )}
+
+        {!isPlaying && (
           <FontAwesomeIcon
             className="play"
             icon={faPlay}

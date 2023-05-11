@@ -75,3 +75,11 @@
   transform: translateX(-30vw);
   transition: all 0.3s ease;
 }
+@media screen and (max-width: 768px) {
+  .song-list {
+    width: 100vw;
+  }
+  .displayList {
+    transform: translateX(-110vw);
+  }
+}

@@ -59,3 +59,11 @@ input[type="range"]::-webkit-slider-thumb {
   pointer-events: none;
   border-radius: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+  .paly-control {
+    width: 60%;
+  }
+}

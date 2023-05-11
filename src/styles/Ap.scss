@@ -4,6 +4,15 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+.App {
+  transition: margin-left 0.5s ease;
+}
+
+.activeList {
+  margin-left: 10%;
+  transition: margin-left 0.5s ease;
+}
+
 @import "./player";
 @import "./song";
 @import "./songList";

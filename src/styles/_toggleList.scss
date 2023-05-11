@@ -30,3 +30,26 @@ nav {
     }
   }
 }
+@media screen and (max-width: 768px) {
+  nav {
+    button {
+      z-index: 100;
+      position: fixed;
+      top: 2vh;
+      right: 5vw;
+      text-align: center;
+
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      span {
+        display: none;
+      }
+    }
+    h1 {
+      position: fixed;
+      top: 3vh;
+      left: 5vw;
+    }
+  }
+}
