@@ -7,8 +7,8 @@
 }
 .time-control {
   width: 50%;
-
   display: flex;
+  align-items: center;
   input {
     width: 100%;
     padding: 1rem 0;
@@ -28,6 +28,12 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: transparent;
 }
 
 .paly-control {
@@ -57,8 +63,8 @@ input[type="range"]::-webkit-slider-thumb {
   left: 0;
   transform: translateX(80%);
   pointer-events: none;
-  border-radius: 1rem;
 }
+
 @media screen and (max-width: 768px) {
   .time-control {
     width: 90%;

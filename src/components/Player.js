@@ -127,6 +127,7 @@ const Player = ({
             onChange={dragHandler}
           />
           <div className="animate-track" style={trackAnimation}></div>
+          <div className="animate-pointer" style={trackAnimation}></div>
         </div>
 
         <p>{timeFormated(songinfo.duration)}</p>
