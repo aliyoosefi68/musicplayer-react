@@ -46,21 +46,33 @@ const Player = ({
       setIsPlaying(false);
     }
   };
+  const [songinfo, setSongInfo] = useState({
+    curentTime: 0,
+    duration: 0,
+    animationPercentage: 0,
+  });
 
   const timeUpdateHandler = (e) => {
     const curent = e.target.currentTime;
     const duration = e.target.duration;
-    setSongInfo({ ...songinfo, curentTime: curent, endTime: duration });
-  };
 
-  const [songinfo, setSongInfo] = useState({
-    curentTime: 0,
-    endTime: 0,
-  });
+    //calculate Percentage
+    const roundCurrent = Math.round(curent);
+    const roundDuration = Math.round(duration);
+
+    const animationPer = Math.round((roundCurrent / roundDuration) * 100);
+
+    setSongInfo({
+      ...songinfo,
+      curentTime: curent,
+      duration: duration,
+      animationPercentage: animationPer,
+    });
+  };
 
   const dragHandler = (e) => {
     setSongInfo({ ...songinfo, curentTime: e.target.value });
-    audioRef.current.curentTime = e.target.value;
+    audioRef.current.currentTime = e.target.value;
   };
 
   const skipSongs = (dir) => {
@@ -81,18 +93,32 @@ const Player = ({
     }
   };
 
+  //add the style
+  const trackAnimation = {
+    transform: `translateX(${songinfo.animationPercentage}%)`,
+  };
+
   return (
     <div className="palyer-container">
       <div className="time-control">
         <p>{timeFormated(songinfo.curentTime)}</p>
-        <input
-          type="range"
-          min={0}
-          max={`${songinfo.duration || 0}`}
-          value={songinfo.curentTime}
-          onChange={dragHandler}
-        />
-        <p>{timeFormated(songinfo.endTime)}</p>
+        <div
+          className="track"
+          style={{
+            background: `linear-gradient(to right , ${curentSong.color[0]},${curentSong.color[1]}) `,
+          }}
+        >
+          <input
+            type="range"
+            min={0}
+            max={songinfo.duration || 0}
+            value={songinfo.curentTime}
+            onChange={dragHandler}
+          />
+          <div className="animate-track" style={trackAnimation}></div>
+        </div>
+
+        <p>{timeFormated(songinfo.duration)}</p>
       </div>
       <div className="paly-control">
         <FontAwesomeIcon
